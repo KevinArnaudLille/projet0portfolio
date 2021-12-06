@@ -1,0 +1,24 @@
+:root {
+  --main-bg-color: #fefae0;
+  --main-tree-color : #772e25;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+#container{
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-bg-color);
+}
+
+h1{
+  font-family: 'Prompt', sans-serif;
+  color:#772e25;
+  font-size: 100 rem;
+  margin: 0;
+}
