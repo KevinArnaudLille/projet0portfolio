@@ -34,11 +34,41 @@ for (item of ["fall", "winter", "spring", "summer"]) {
 
 // FALL ---------------------------------
 
+
+
 let leaf = document.createElement("div");
-leaf.textContent = 'TEST';
-leaf.style.cssText=`
-color : red;
-position : absolute;
-transform: translate(150%, 0);
+leaf.setAttribute("class", "leaves");
+leaf.setAttribute("id", "leafA");
+leaf.style.cssText = `
+width: 50px;
+height: 50px;
 `;
 document.querySelector("#jsAnimatedElements").append(leaf);
+leaf.addEventListener('mouseover', (e) => dodgeMouse(e))
+
+let mouseOver = false
+function dodgeMouse(e) {
+  console.log(e);
+  mouseOver = true;
+  setTimeout(()=>mouseOver=false,1000)
+}
+
+let i = 0;
+let speed = 0.3;
+function leafMove(height=50) {
+  leaf.style.cssText = `
+    width: 50px;
+    height: ${height}px;
+    top:${i * speed}vh;
+  `;
+  (i * speed) < 110 ? i++ : i = 0;
+}
+
+function animate() {
+  leafMove()
+  if (mouseOver){
+    leafMove(70)
+  }
+  requestAnimationFrame(animate)
+}
+animate();

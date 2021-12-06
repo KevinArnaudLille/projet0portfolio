@@ -1,10 +1,10 @@
 :root {
   --main-bg-color: #fefae0;
-  --main-tree-color : #772e25;
-  --main-leafa-color : #bc6c25;
-  --main-leafb-color : #dda15e;
-  --main-grass-color : #283618;
-  --second-grass-color : #606c38;
+  --main-tree-color: #772e25;
+  --main-leafa-color: #bc6c25;
+  --main-leafb-color: #dda15e;
+  --main-grass-color: #283618;
+  --second-grass-color: #606c38;
 }
 
 body {
@@ -17,20 +17,33 @@ body {
 
 /* ANIMATED BACKGROUND */
 
-#animationContainer{
+#animatedBackground {
   position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: var(--main-bg-color);
-  z-index: -1;
   overflow: hidden;
 }
 
-#staticElements, #cssAnimatedElements, #jsAnimatedElements{
+#staticElements, #cssAnimatedElements, #jsAnimatedElements {
   position: absolute;
   top: 0;
   left: 0;
 }
+
+/* Static elements */
+/* Css animated Elements */
+/* Js animated elements */
+
+.leaves {
+  position: absolute;
+  border-radius: 50%;
+  background-color: darkgreen;
+  left: 200px;
+  top: 300px;
+}
+
+
 
 /* @keyframes falling {
   from{top: -10%;}
@@ -53,14 +66,19 @@ body {
 
 /* INFORMATION ELEMENTS */
 
-h1{
+#informationsElements {
+  position: absolute;
+  z-index: 1;
+}
+
+h1 {
   font-family: 'Prompt', sans-serif;
-  color:#772e25;
+  color: #772e25;
   font-size: 4rem;
   margin: 0;
   z-index: 2;
 }
 
-.seasonBtn{
+.seasonBtn {
   font-size: 2rem;
 }
