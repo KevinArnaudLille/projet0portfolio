@@ -1,3 +1,4 @@
+// SEASONS SWAP BUTTONS MAIN SETTINGS -----------------------------------
 // Season object constructeur declaration 
 function Season(id) {
   this.seasonId = id,
@@ -22,7 +23,7 @@ function switchSeasonPageStyle(id) {
   document.querySelector("#styleSheet").setAttribute("href", `${id}Style.css`);
 };
 
-// Seasons list of season object 
+// Seasons objects list generation
 let seasons = []
 for (item of ["fall", "winter", "spring", "summer"]) {
   seasons.push(
@@ -30,4 +31,14 @@ for (item of ["fall", "winter", "spring", "summer"]) {
   );
 };
 
-console.log(seasons)
+
+// FALL ---------------------------------
+
+let leaf = document.createElement("div");
+leaf.textContent = 'TEST';
+leaf.style.cssText=`
+color : red;
+position : absolute;
+transform: translate(150%, 0);
+`;
+document.querySelector("#jsAnimatedElements").append(leaf);

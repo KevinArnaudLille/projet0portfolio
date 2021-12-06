@@ -1,24 +1,66 @@
 :root {
   --main-bg-color: #fefae0;
   --main-tree-color : #772e25;
+  --main-leafa-color : #bc6c25;
+  --main-leafb-color : #dda15e;
+  --main-grass-color : #283618;
+  --second-grass-color : #606c38;
 }
 
-html,
 body {
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
   font-size: 100%;
 }
 
-#container{
+/* ANIMATED BACKGROUND */
+
+#animationContainer{
+  position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: var(--main-bg-color);
+  z-index: -1;
+  overflow: hidden;
 }
+
+#staticElements, #cssAnimatedElements, #jsAnimatedElements{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* @keyframes falling {
+  from{top: -10%;}
+  to{top: 110%;}
+} */
+
+
+/* #circleTest{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 100px;
+  background-color: darkgreen;
+  border-radius: 50% 50% 36% 64% / 75% 79% 21% 25% ;
+  animation-name: falling;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  z-index: 1;
+} */
+
+/* INFORMATION ELEMENTS */
 
 h1{
   font-family: 'Prompt', sans-serif;
   color:#772e25;
-  font-size: 100 rem;
+  font-size: 4rem;
   margin: 0;
+  z-index: 2;
+}
+
+.seasonBtn{
+  font-size: 2rem;
 }
