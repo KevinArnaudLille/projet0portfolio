@@ -1,6 +1,81 @@
-html,
+:root {
+  --main-bg-ground-color: #d7e1e5;
+  --main-bg-sky-color: #f5e2d0;
+  --text-color: #9b887d;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: aqua;
+  width: 100vw;
+  height: 100vh;
+  font-size: 100%;
+}
+
+/* ANIMATED BACKGROUND */
+
+#animatedBackground {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-bg-sky-color);
+  overflow: hidden;
+}
+
+#staticElements, #cssAnimatedElements, #jsAnimatedElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Static elements */
+/* Css animated Elements */
+/* Js animated elements */
+
+.leaves {
+  position: absolute;
+  border-radius: 50%;
+  background-color: darkgreen;
+  left: 200px;
+  top: 300px;
+}
+
+
+
+/* @keyframes falling {
+  from{top: -10%;}
+  to{top: 110%;}
+} */
+
+
+/* #circleTest{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 100px;
+  background-color: darkgreen;
+  border-radius: 50% 50% 36% 64% / 75% 79% 21% 25% ;
+  animation-name: falling;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  z-index: 1;
+} */
+
+/* INFORMATION ELEMENTS */
+
+#informationsElements {
+  position: absolute;
+  z-index: 1;
+}
+
+h1 {
+  font-family: 'Prompt', sans-serif;
+  color: var(--text-color);
+  font-size: 4rem;
+  margin: 0;
+  z-index: 2;
+}
+
+.seasonBtn {
+  font-size: 2rem;
 }

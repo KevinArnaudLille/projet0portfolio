@@ -1,11 +1,15 @@
 // SEASONS SWAP BUTTONS MAIN SETTINGS -----------------------------------
-// Season object constructeur declaration 
+// Season object constructeur declaration
+function $(selector){
+  return document.querySelector(selector)
+}
+
 function Season(id) {
   this.seasonId = id,
-    this.seasonBtn = document.querySelector(`#${id}`),
-    this.styleSheetCall = document.querySelector(`#${id}`).addEventListener('click', () => switchSeasonPageStyle(id)),
-    this.mouseOverBtn = document.querySelector(`#${id}`).addEventListener('mouseover', () => seasonBtnMouseOver(id)),
-    this.mouseLeaveBtn = document.querySelector(`#${id}`).addEventListener('mouseout', () => seasonBtnMouseOut(id))
+    this.seasonBtn = $(`#${id}`),
+    this.styleSheetCall = $(`#${id}`).addEventListener('click', () => switchSeasonPageStyle(id)),
+    this.mouseOverBtn = $(`#${id}`).addEventListener('mouseover', () => seasonBtnMouseOver(id)),
+    this.mouseLeaveBtn = $(`#${id}`).addEventListener('mouseout', () => seasonBtnMouseOut(id))
 };
 
 function seasonBtnMouseOver(id) {
@@ -20,7 +24,7 @@ function seasonBtnMouseOut(id) {
 
 function switchSeasonPageStyle(id) {
   console.log(id)
-  document.querySelector("#styleSheet").setAttribute("href", `${id}Style.css`);
+  $("#styleSheet").setAttribute("href", `${id}Style.css`);
 };
 
 // Seasons objects list generation
@@ -31,44 +35,49 @@ for (item of ["fall", "winter", "spring", "summer"]) {
   );
 };
 
+// WINTER -------------------------------
+
+
 
 // FALL ---------------------------------
 
 
 
-let leaf = document.createElement("div");
-leaf.setAttribute("class", "leaves");
-leaf.setAttribute("id", "leafA");
-leaf.style.cssText = `
-width: 50px;
-height: 50px;
-`;
-document.querySelector("#jsAnimatedElements").append(leaf);
-leaf.addEventListener('mouseover', (e) => dodgeMouse(e))
+// let leaf = document.createElement("div");
+// leaf.setAttribute("class", "leaves");
+// leaf.setAttribute("id", "leafA");
+// leaf.style.cssText = `
+// width: 50px;
+// height: 50px;
+// `;
+// document.querySelector("#jsAnimatedElements").append(leaf);
+// leaf.addEventListener('mouseover', (e) => dodgeMouse(e))
 
-let mouseOver = false
-function dodgeMouse(e) {
-  console.log(e);
-  mouseOver = true;
-  setTimeout(()=>mouseOver=false,1000)
-}
+// let mouseOver = false
+// function dodgeMouse(e) {
+//   console.log(e);
+//   mouseOver = true;
+//   setTimeout(()=>mouseOver=false,1000)
+// }
 
-let i = 0;
-let speed = 0.3;
-function leafMove(height=50) {
-  leaf.style.cssText = `
-    width: 50px;
-    height: ${height}px;
-    top:${i * speed}vh;
-  `;
-  (i * speed) < 110 ? i++ : i = 0;
-}
+// let i = 0;
+// let speed = 0.3;
+// function leafMove(height=50) {
+//   leaf.style.cssText = `
+//     width: 50px;
+//     height: ${height}px;
+//     top:${i * speed}vh;
+//   `;
+//   (i * speed) < 110 ? i++ : i = 0;
+// }
 
-function animate() {
-  leafMove()
-  if (mouseOver){
-    leafMove(70)
-  }
-  requestAnimationFrame(animate)
-}
-animate();
+// Animation
+
+// function animate() {
+//   leafMove()
+//   if (mouseOver){
+//     leafMove(70)
+//   }
+//   requestAnimationFrame(animate)
+// }
+// animate();
