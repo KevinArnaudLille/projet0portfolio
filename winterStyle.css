@@ -32,12 +32,8 @@ body {
 /* Css animated Elements */
 /* Js animated elements */
 
-.leaves {
+.snowflake {
   position: absolute;
-  border-radius: 50%;
-  background-color: darkgreen;
-  left: 200px;
-  top: 300px;
 }
 
 
