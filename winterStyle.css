@@ -63,7 +63,7 @@ body {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  pointer-events: none;
 }
 
 h1 {
@@ -72,7 +72,7 @@ h1 {
   font-size: 4rem;
   margin: 0;
   margin-left: 20px;
-  z-index: 2;
+  z-index: 4;
 }
 
 #seasonBtnContainer {
@@ -91,6 +91,7 @@ h1 {
   border: none;
   color: white;
   background-color: var(--btn-background-color);
+  pointer-events:all;
 }
 
 @keyframes BtnColorChange {
