@@ -1,8 +1,9 @@
 :root {
   --main-bg-ground-color: #d7e1e5;
   /* --main-bg-sky-color: #f5e2d0; */
-  --main-bg-sky-color: black;
-  --text-color: #9b887d;
+  --main-bg-sky-color: #070B34;
+  --text-color: #855988;
+  --btn-background-color:rgba(72,52,117,0.2);
 }
 
 body {
@@ -19,7 +20,9 @@ body {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: var(--main-bg-sky-color);
+  /* background-color: var(--main-bg-sky-color); */
+  background: rgb(133,89,136);
+background: linear-gradient(10deg, rgba(133,89,136,1) 0%, rgba(72,52,117,1) 15%, rgba(20,24,82,1) 57%, rgba(7,11,52,1) 89%);
   overflow: hidden;
 }
 
@@ -59,9 +62,32 @@ h1 {
   color: var(--text-color);
   font-size: 4rem;
   margin: 0;
+  margin-left: 20px;
   z-index: 2;
 }
 
+#seasonBtnContainer{
+  position:absolute;
+  width: 700px;
+  top:25px;
+  left:550px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .seasonBtn {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  border-radius: 20%;
+  border: none;
+  color:white;
+  background-color: var(--btn-background-color);
+}
+
+@keyframes BtnColorChange {
+  from{background-color: var(--btn-background-color);}
+  to{background-color: #6B4984;}
+}
+.seasonBtn:hover{
+animation: BtnColorChange 0.3s ease-in 0s infinite alternate none;
 }

@@ -26,20 +26,20 @@ function randn_bm() {
 function Season(id) {
   this.seasonId = id,
     this.seasonBtn = $(`#${id}`),
-    this.styleSheetCall = $(`#${id}`).addEventListener('click', () => switchSeasonPageStyle(id)),
-    this.mouseOverBtn = $(`#${id}`).addEventListener('mouseover', () => seasonBtnMouseOver(id)),
-    this.mouseLeaveBtn = $(`#${id}`).addEventListener('mouseout', () => seasonBtnMouseOut(id))
+    this.styleSheetCall = $(`#${id}`).addEventListener('click', () => switchSeasonPageStyle(id))
+    // this.mouseOverBtn = $(`#${id}`).addEventListener('mouseover', () => seasonBtnMouseOver(id)),
+    // this.mouseLeaveBtn = $(`#${id}`).addEventListener('mouseout', () => seasonBtnMouseOut(id))
 };
 
-function seasonBtnMouseOver(id) {
-  let season = seasons.find(obj => { return obj.seasonId === id });
-  season.seasonBtn.style.backgroundColor = "red";
-};
+// function seasonBtnMouseOver(id) {
+//   let season = seasons.find(obj => { return obj.seasonId === id });
+//   season.seasonBtn.style.backgroundColor = "red";
+// };
 
-function seasonBtnMouseOut(id) {
-  let season = seasons.find(obj => { return obj.seasonId === id });
-  season.seasonBtn.style.backgroundColor = "white";
-};
+// function seasonBtnMouseOut(id) {
+//   let season = seasons.find(obj => { return obj.seasonId === id });
+//   season.seasonBtn.style.backgroundColor = "var(--btn-background-color)";
+// };
 
 function switchSeasonPageStyle(id) {
   console.log(id)
