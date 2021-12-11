@@ -16,7 +16,7 @@ body {
 
 /* ANIMATED BACKGROUND */
 
-@keyframes backgroundColorPulse {
+/* @keyframes backgroundColorPulse {
   from {
     background: rgb(133, 89, 136);
     background: linear-gradient(10deg, rgba(133, 89, 136, 1) 0%, rgba(72, 52, 117, 1) 15%, rgba(20, 24, 82, 1) 57%, rgba(7, 11, 52, 1) 89%);
@@ -26,7 +26,7 @@ body {
     background: rgb(133, 89, 136);
     background: linear-gradient(10deg, rgba(133, 89, 136, 1) 0%, rgba(72, 52, 117, 1) 20%, rgba(20, 24, 82, 1) 57%, rgba(7, 11, 52, 1) 89%);
   }
-}
+} */
 
 #animatedBackground {
   position: absolute;
