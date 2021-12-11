@@ -33,7 +33,9 @@ body {
   width: 100vw;
   height: 100vh;
   /* background-color: var(--main-bg-sky-color); */
-  animation: backgroundColorPulse 10s ease-in-out 0s infinite alternate none;
+  /* animation: backgroundColorPulse 10s ease-in-out 0s infinite alternate none; */
+  background: rgb(133, 89, 136);
+  background: linear-gradient(10deg, rgba(133, 89, 136, 1) 0%, rgba(72, 52, 117, 1) 15%, rgba(20, 24, 82, 1) 57%, rgba(7, 11, 52, 1) 89%);
   overflow: hidden;
 }
 
@@ -59,6 +61,8 @@ body {
 
 #informationsElements {
   position: absolute;
+  width: 100vw;
+  height: 100vh;
   z-index: 1;
 }
 
@@ -75,7 +79,7 @@ h1 {
   position: absolute;
   width: 700px;
   top: 25px;
-  left: 550px;
+  right: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
