@@ -44,9 +44,8 @@ for (item of ["fall", "winter", "spring", "summer"]) {
 let initSnowflakesNb = 100;
 let currentSnowflakes = [];
 
-function Snowflake(num, lane) {
+function Snowflake(num) {
   console.log("snowflake generated")
-  console.log(lane);
 
   this.docElement = document.createElement("div");
   this.docElement.setAttribute("class", "snowflakes");
@@ -63,25 +62,36 @@ function Snowflake(num, lane) {
   });
 
 
-  this.xStartingPos = 100 * Math.random();
+  this.xStartingPos = (120 * Math.random())-10;
   this.yStartingPos = (-1000 * Math.random()) - 10;
-  this.snowflakeSpeed = 0.03 + (0.08 * Math.random());
-  this.snowflakeWidth = 1 +(2* Math.random());
+  this.snowflakeSpeed = 0.02 + (0.08 * Math.random());
+  this.snowflakeWidth = 1 + (2 * Math.random());
   this.snowflakeHeight = this.snowflakeWidth / GLOBALHOnWRate;
   this.backGroundColor = "white";
 
 
-  let xMaxBrownianShift = 0.3;
+  let xMaxBrownianShift = 0.1;
   let xMaxMouseoverShift = 1;
   let dodgeFactor = -20;
   let xShift = 0;
-  let snowflakeReverseExcitement = 3;
-  let windForce = 0.002;
-  let windDirection = 1;
+  let snowflakeReverseExcitement = 10;
+  let windForce = 0.07;
+  let windDirection = -1;
 
   this.snowflakeMove = () => {
+    // Mooving down
     (this.yStartingPos * this.snowflakeSpeed) < 110 ? this.yStartingPos++ : this.yStartingPos = -10;
-    xShift += (windForce * windDirection)
+  
+    // Mooving sideway
+    if (this.xStartingPos + xShift > 110) {
+      xShift = 0;
+      this.xStartingPos = -10;
+    } else if (this.xStartingPos + xShift < -10){
+      xShift = 0;
+      this.xStartingPos = 110;
+    } else {
+      xShift += (windForce * windDirection);
+    }
 
     if (Math.round(this.yStartingPos) % snowflakeReverseExcitement == 0) {
       xShift += xMaxBrownianShift * (Math.random() - 0.5);
@@ -91,7 +101,7 @@ function Snowflake(num, lane) {
       xShift += xMaxMouseoverShift * (Math.random() - 0.5);
       this.yStartingPos += dodgeFactor * (Math.random());
       this.backGroundColor = "red";
-      setTimeout(()=>this.backGroundColor = "white",1000);
+      setTimeout(() => this.backGroundColor = "white", 1000);
       this.mouseIsOnSnowflake = !this.mouseIsOnSnowflake;
     };
 
@@ -114,11 +124,11 @@ function Snowflake(num, lane) {
 
 // lane => front, middle, back
 for (i = 0; i < initSnowflakesNb; i++) {
-  currentSnowflakes.push(new Snowflake(i, "back"));
+  currentSnowflakes.push(new Snowflake(i));
 }
 
 function addSnowflake() {
-  currentSnowflakes.push(new Snowflake((currentSnowflakes.length + 1), "back"));
+  currentSnowflakes.push(new Snowflake((currentSnowflakes.length + 1)));
 }
 
 
@@ -153,58 +163,3 @@ animate();
 // }
 
 // ARCHIVE -----------------------------
-
-// Create and add a snowflake
-// let snowflake = document.createElement("div");
-// snowflake.setAttribute("class", "snowflakes");
-// snowflake.setAttribute("id", "snowflakeA");
-// $("#jsAnimatedElements").append(snowflake);
-// let mouseClickOnSnowflake = false;
-// snowflake.addEventListener('click', () => {
-//   mouseClickOnSnowflake = !mouseClickOnSnowflake
-// });
-// let mouseIsOnSnowflake = false;
-// snowflake.addEventListener('mouseover', () => {
-//   mouseIsOnSnowflake = !mouseIsOnSnowflake
-// });
-
-// let yPos = -10;
-// let snowflakeSpeed = 0.15;
-// let xStartingPos = 200;
-// let xMaxBrownianShift = 1;
-// let xMaxMouseoverShift = 18;
-// let dodgeFactor = 20;
-// let xShift = 0;
-// let snowflakeReverseExcitement = 3;
-// let windForce = 0.3;
-// let windDirection = 1;
-
-// function snowflakeMove() {
-
-//   (yPos * snowflakeSpeed) < 110 ? yPos++ : yPos = -10;
-//   xShift += (windForce * windDirection)
-
-//   if (Math.round(yPos) % snowflakeReverseExcitement == 0) {
-//     xShift += xMaxBrownianShift * (Math.random() - 0.5);
-//   };
-
-//   if (mouseIsOnSnowflake) {
-//     // xShift += xMaxMouseoverShift * (Math.random() - 0.5);
-//     yPos += dodgeFactor * (Math.random() - 0.5);
-//     mouseIsOnSnowflake = !mouseIsOnSnowflake;
-//   };
-//   if (mouseClickOnSnowflake) {
-//     snowflake.remove();
-//     // ici une fonction qui genere un nouveau flocon
-//     mouseClickOnSnowflake != mouseClickOnSnowflake;
-//   };
-
-//   snowflake.style.cssText = `
-//   width: 30px;
-//   height: 30px;
-//   left: ${xStartingPos + xShift}px;
-//   top:${yPos * snowflakeSpeed}vh;
-//   border-radius: 50%;
-//   background-color: white;
-// `;
-// }
